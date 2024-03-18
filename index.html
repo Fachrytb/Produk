@@ -47,6 +47,7 @@
           ' <button class="btn btn-danger hapus" data="' +
           data.id +
           '">Hapus</button>' +
+          '<img src="loader.gif" style="width: 2em; display: none" id="'+data.id+'">'+
           '</td>' +
           '</tr>'
         );
@@ -54,6 +55,7 @@
       });
       $('#loader').hide();
       $('.hapus').click(async function() {
+        $('#'+$(this).attr('data')).show();
         await hapusdata($(this).attr('data'));
         location.reload();
       })
