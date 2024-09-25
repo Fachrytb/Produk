@@ -24,6 +24,7 @@ const firebaseConfig = {
 // Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+a
 export async function ambilDaftarProduk() {
   const refDokumen = collection(db, "produk");
   const kueri = query(refDokumen, orderBy("nama"));
@@ -41,6 +42,12 @@ export async function ambilDaftarProduk() {
 }
 export function formatAngka(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+export function hitungTotal() {
+  let angka1 = parseInt(document.getElementById("input-harga").value);
+  let angka2 = parseInt(document.getElementById("input-stok").value);
+  let total = angka1 + angka2;
+  document.getElementById("total").value = total;
 }
 export async function hapusdata(docId) {
   await deleteDoc(doc(db, "produk", docId));

@@ -27,6 +27,10 @@
       <label class="form-label">Stok</label>
       <input type="text" class="form-control" id="input-stok">
     </div>
+        <div class="mb-3">
+      <label class="form-label">total</label>
+      <input type="text" class="form-control" id="total">
+    </div>
     <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
       <img src="loader.gif" style="width: 2em; display: none" id="loader">
   </form>
@@ -34,13 +38,16 @@
   <a href="index.html">Lihat Daftar Produk</a>
   
   <script type="module">
-    import { tambahProduk } from './main.js';
+    import { tambahProduk,hitungtotal } from './main.js';
     
     let tombolTambah = document.getElementById('tombol-tambah');
     let elemenNamaProduk = document.getElementById('input-nama');
-    let elemenHarga = document.getElementById('input-harga');
-    let elemenStok = document.getElementById('input-stok');
+    let elemenHarga = parseInt(document.getElementById("input-harga"));
+    let elemenStok = parseInt(document.getElementById('input-stok'));
+    let elemenTotal = document.getElementById('total');
+    elemenTotal.value = hitungtotal(total);
     let loader = document.getElementById('loader');
+  
     
     tombolTambah.addEventListener('click', async function (e) {
       tombolTambah.setAttribute('disabled','disabled');

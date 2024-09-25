@@ -16,7 +16,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Nama Produk</th>
+        <th scope="col">Nama Produuk</th>
         <th scope="col">Harga</th>
         <th scope="col">Stok</th>
       </tr>
@@ -25,7 +25,7 @@
     </tbody>
   </table>
   <img src="loader.gif" style="width: 2em; display: block" id="loader">
-  <a href="form-produk.html">Tambah Produk</a>
+<a href="form-produk.html"><button class="btn btn-primary tombol-tambah">Tambah Data Produk</button></a>
   <script type="module">
     import { ambilDaftarProduk, hapusdata, formatAngka } from './main.js';
 
@@ -55,6 +55,7 @@
       });
       $('#loader').hide();
       $('.hapus').click(async function() {
+        $(this).attr('disabled','disabled');
         $('#'+$(this).attr('data')).show();
         await hapusdata($(this).attr('data'));
         location.reload();
